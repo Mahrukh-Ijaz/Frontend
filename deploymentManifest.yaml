@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        tier: frontend
+        app: myapp
+    spec:
+      containers:
+      - name: frontend
+        image: mahrukhijaz/frontend
+        ports:
+        - containerPort: 8080
+          name: tcp
